@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
- 
- @import "bootstrap";
 
+@import "bootstrap";
+
+#main-container {
+  padding: 20px;
+}

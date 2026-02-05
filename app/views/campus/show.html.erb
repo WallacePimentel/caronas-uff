@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
+  <h1>Campus Details</h1>
+  
+  <ul class="list-group mt-3">
+    <li class="list-group-item"><strong>Description:</strong> <%= @campu.description %></li>
+    <li class="list-group-item"><strong>Street address:</strong> <%= @campu.street_adress %></li>
+    <li class="list-group-item"><strong>Number:</strong> <%= @campu.number %></li>
+    <li class="list-group-item"><strong>District:</strong> <%= @campu.district %></li>
+    <li class="list-group-item"><strong>City:</strong> <%= @campu.city %></li>
+    <li class="list-group-item"><strong>CEP:</strong> <%= @campu.CEP %></li>
+    <li class="list-group-item"><strong>Status:</strong> <%= @campu.status.capitalize %></li>
+    <li class="list-group-item"><strong>Deactivation date:</strong> <%= @campu.deactivation_date %></li>
+  </ul>
+
+  <div class="mt-3">
+    <%= link_to 'Edit', edit_campu_path(@campu), class: "btn btn-warning" %>
+    <%= link_to 'Back', campus_path, class: "btn btn-secondary text-light" %>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container mt-5 ml-2"> 
+  <p id="notice"><%= notice %></p>
+
+  <h1><strong>Campus</strong></h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Street adress</th>
+        <th>Number</th>
+        <th>District</th>
+        <th>City</th>
+        <th>Cep</th>
+        <th>Status</th>
+        <th>Deactivation date</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @campus.each do |campu| %>
+        <tr>
+          <td><%= campu.description %></td>
+          <td><%= campu.street_adress %></td>
+          <td><%= campu.number %></td>
+          <td><%= campu.district %></td>
+          <td><%= campu.city %></td>
+          <td><%= campu.CEP %></td>
+          <td><%= campu.status.capitalize %></td>
+          <td><%= campu.deactivation_date %></td>
+          <td><%= link_to 'Show', campu , class: "btn btn-success" %></td>
+          <td><%= link_to 'Edit', edit_campu_path(campu), class: "btn btn-warning" %></td>
+          <td><%= button_to campu_path(campu), method: :delete, data: { confirm: 'Are you sure you want to delete the Campus?' }, 
+          class: "btn btn-danger", form: { class: "d-inline"} do %>
+            <i class  ="bi bi-trash3-fill"></i> <span>Delete</span>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Campus', new_campu_path, class: "btn btn-primary text-light" %>
+</div>

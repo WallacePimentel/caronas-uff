@@ -1,0 +1,55 @@
+<%= form_with(model: campu, local: true) do |form| %>
+  <% if campu.errors.any? %>
+    <div class="alert alert-danger">
+      <h5><%= pluralize(campu.errors.count, "error") %> prohibited this campus from being saved:</h5>
+      <ul class="mb-0">
+        <% campu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :street_adress, class: "form-label" %>
+    <%= form.text_field :street_adress, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :number, class: "form-label" %>
+    <%= form.text_field :number, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :district, class: "form-label" %>
+    <%= form.text_field :district, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :city, class: "form-label" %>
+    <%= form.text_field :city, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :CEP, class: "form-label" %>
+    <%= form.text_field :CEP, class: "form-control" %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, 
+        options_for_select([["Active", "active"], ["Inactive", "inactive"]], campu.status),
+        {},
+        { class: "form-control", onchange: "if((this.value == 'inactive' || this.value == 'active') && !confirm('Are you sure you want to change this Campus status?')) { this.value = '#{campu.status}'; }" } 
+    %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
