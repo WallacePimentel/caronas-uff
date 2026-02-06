@@ -30,4 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  links:
+    edit: "Edit"
+    back: "Back"
+    show: "Show"
+    destroy: "Destroy"
+    new campus: "New Campus"
+    submit: "Submit"
+  hello: "Hello"
+  description: "Description"
+  street adress: "Street Address"
+  number: "Number"
+  district: "District"
+  city: "City"
+  CEP: "ZIP Code"
+  status: "Status"
+  deactivation date: "Deactivation Date"
+  editing campus: "Editing Campus"
+  campus details: "Campus Details"
+  welcome: "Welcome to the UFF carpool system!"
+  application name: "Caronas UFF"
