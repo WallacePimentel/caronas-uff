@@ -6,14 +6,14 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Description</th>
-        <th>Street adress</th>
-        <th>Number</th>
-        <th>District</th>
-        <th>City</th>
-        <th>Cep</th>
-        <th>Status</th>
-        <th>Deactivation date</th>
+        <th><%= Campu.human_attribute_name(:description) %></th>
+        <th><%= Campu.human_attribute_name(:street_adress) %></th>
+        <th><%= Campu.human_attribute_name(:number) %></th>
+        <th><%= Campu.human_attribute_name(:district) %></th>
+        <th><%= Campu.human_attribute_name(:city) %></th>
+        <th><%= Campu.human_attribute_name(:CEP) %></th>
+        <th><%= Campu.human_attribute_name(:status) %></th>
+        <th><%= Campu.human_attribute_name(:deactivation_date) %></th>
         <th colspan="4"></th>
       </tr>
     </thead>
@@ -29,11 +29,11 @@
           <td><%= campu.CEP %></td>
           <td><%= campu.status.capitalize %></td>
           <td><%= campu.deactivation_date %></td>
-          <td><%= link_to 'Show', campu , class: "btn btn-success" %></td>
-          <td><%= link_to 'Edit', edit_campu_path(campu), class: "btn btn-warning" %></td>
+          <td><%= link_to t('links.show'), campu , class: "btn btn-success" %></td>
+          <td><%= link_to t('links.edit'), edit_campu_path(campu), class: "btn btn-warning" %></td>
           <td><%= button_to campu_path(campu), method: :delete, data: { confirm: 'Are you sure you want to delete the Campus?' }, 
           class: "btn btn-danger", form: { class: "d-inline"} do %>
-            <i class  ="bi bi-trash3-fill"></i> <span>Delete</span>
+            <i class  ="bi bi-trash3-fill"></i> <span><%= t('links.destroy') %></span>
           <% end %>
           </td>
         </tr>
@@ -43,5 +43,5 @@
 
   <br>
 
-  <%= link_to 'New Campus', new_campu_path, class: "btn btn-primary text-light" %>
+  <%= link_to t('links.new campus'), new_campu_path, class: "btn btn-primary text-light" %>
 </div>

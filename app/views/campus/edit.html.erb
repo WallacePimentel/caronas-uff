@@ -1,8 +1,8 @@
 <div class="container mt-5 ml-2">
-    <h1><strong>Editing Campus</strong></h1>
+    <h1><strong><%= t('editing campus') %></strong></h1>
 
     <%= render 'form', campu: @campu %>
 
-    <%= link_to 'Show', @campu , class: "btn btn-success" %> |
-    <%= link_to 'Back', campus_path, class: "btn btn-secondary text-light" %>
+    <%= link_to t('links.show'), @campu , class: "btn btn-success" %> |
+    <%= link_to t('links.back'), campus_path, class: "btn btn-secondary text-light" %>
 </div>
