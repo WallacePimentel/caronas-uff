@@ -1,24 +1,20 @@
 "pt-BR":
+  welcome: "Seja bem vindo ao sistema de caronas da UFF!"
+  application name: "Caronas UFF"
   links:
     edit: "Editar"
     back: "Voltar"
     show: "Mostrar"
     destroy: "Excluir"
-    new campus: "Novo Campus"
+    new:
+      campus: "Novo Campus"
     submit: "Enviar"
-  hello: "Olá"
-  description: "Descrição"
-  street adress: "Endereço"
-  number: "Número"
-  district: "Bairro"
-  city: "Cidade"
-  CEP: "CEP"
-  status: "Status"
-  deactivation date: "Data de desativação"
 
-  editing campus: "Editando Campus"
-  campus details: "Detalhes do Campus"
-  welcome: "Seja bem vindo ao sistema de caronas da UFF!"
-  application name: "Caronas UFF"
-  active: "Ativo"
-  inactive: "Inativo"
+  editing:
+    campus: "Editando Campus"
+  details:
+    campus: "Detalhes do Campus"
+
+  status:
+    active: "Ativo"
+    inactive: "Inativo"
