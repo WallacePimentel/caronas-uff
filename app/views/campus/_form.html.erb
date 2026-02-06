@@ -43,9 +43,9 @@
   <div class="form-group mb-3">
     <%= form.label :status, class: "form-label" %>
     <%= form.select :status, 
-        options_for_select([["Active", "active"], ["Inactive", "inactive"]], campu.status),
+        options_for_select([[t('active'), "ativo"], [t('inactive'), "inativo"]], campu.status),
         {},
-        { class: "form-control", onchange: "if((this.value == 'inactive' || this.value == 'active') && !confirm('Are you sure you want to change this Campus status?')) { this.value = '#{campu.status}'; }" } 
+        { class: "form-control", onchange: "if((this.value == 'inativo' || this.value == 'ativo') && !confirm('Are you sure you want to change this Campus status?')) { this.value = '#{campu.status}'; }" } 
     %>
   </div>
 
