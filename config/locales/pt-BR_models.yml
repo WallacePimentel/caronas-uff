@@ -1,0 +1,14 @@
+"pt-BR":
+  activerecord:
+    models:
+      campu: Campus
+    attributes:
+      campu:
+        description: Descrição
+        street_adress: Endereço
+        number: Número
+        district: Bairro
+        city: Cidade
+        CEP: CEP
+        status: Status
+        deactivation_date: Data de desativação

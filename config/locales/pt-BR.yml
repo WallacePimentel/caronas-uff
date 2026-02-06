@@ -1,0 +1,20 @@
+"pt-BR":
+  links:
+    edit: "Editar"
+    back: "Voltar"
+    show: "Mostrar"
+    destroy: "Excluir"
+    new campus: "Novo Campus"
+    submit: "Enviar"
+  hello: "Olá"
+  description: "Descrição"
+  street adress: "Endereço"
+  number: "Número"
+  district: "Bairro"
+  city: "Cidade"
+  CEP: "CEP"
+  status: "Status"
+  deactivation date: "Data de desativação"
+
+  editing campus: "Editando Campus"
+  campus details: "Detalhes do Campus"
