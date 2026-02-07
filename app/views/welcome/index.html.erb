@@ -1,17 +1,9 @@
-<div class="container mt-5 ml-2">
-
-  <p>
-    <%= link_to 'Português', '/?locale=pt-BR' %>
+<div class="jumbotron">
+  <h1 class="display-4"><%= t('menu.welcome') %></h1>
+  <p class="lead"><%= t('menu.introduction') %></p>
+  <hr class="my-4">
+  <p><%= t('menu.options') %></p>
+  <p class="lead">
+    <%= render 'menu'%>
   </p>
-
-  <p>
-    <%= link_to 'English', '/?locale=en' %>
-  </p>
-  
-  <h1><strong><%= t('application name') %></strong></h1>
-  <h4><%= t('welcome') %></h4>
-
-  <ul> 
-    <li><%= link_to 'Campus', campus_path %></li>
-  </ul>
 </div>
