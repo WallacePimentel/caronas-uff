@@ -18,3 +18,8 @@
   status:
     active: "Ativo"
     inactive: "Inativo"
+
+  menu:
+    welcome: "Seja bem vindo!"
+    introduction: "Este é o sistema de caronas da UFF. Onde você pode navegar pelos campi da UFF e criar caronas entre eles."
+    options: "Escolha abaixo uma das opções para começar a navegar:"
