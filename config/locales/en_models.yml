@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      campu: Campus
+    attributes:
+      campu:
+        description: Description
+        street_adress: Address
+        number: NNumber
+        district: District
+        city: City
+        CEP: ZIP Code
+        status: Status
+        deactivation_date: Deactivation Date
