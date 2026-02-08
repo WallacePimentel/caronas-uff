@@ -31,7 +31,7 @@
           <td><%= campu.deactivation_date.strftime(t('datetime.formats.default')) if campu.deactivation_date %></td>
           <td><%= link_to t('links.show'), campu , class: "btn btn-success" %></td>
           <td><%= link_to t('links.edit'), edit_campu_path(campu), class: "btn btn-warning" %></td>
-          <td><%= button_to campu_path(campu), method: :delete, data: { confirm: 'Are you sure you want to delete the Campus?' }, 
+          <td><%= button_to campu_path(campu), method: :delete, data: { confirm: t('messages.confirmation.are_you_sure') }, 
           class: "btn btn-danger", form: { class: "d-inline"} do %>
             <i class  ="bi bi-trash3-fill"></i> <span><%= t('links.destroy') %></span>
           <% end %>

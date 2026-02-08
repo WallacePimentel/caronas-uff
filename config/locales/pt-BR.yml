@@ -34,6 +34,7 @@
     carpool:
     confirmation:
       are_you_sure: "Tem certeza que deseja excluir este item?"
+      change_status: "Tem certeza que deseja alterar o status deste Campus?"
   datetime:
     formats:
       default: "%d/%m/%Y %H:%M"

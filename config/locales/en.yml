@@ -65,6 +65,7 @@ en:
     carpool:
     confirmation:
       are_you_sure: "Are you sure you want to delete this item?"
+      change_status: "Are you sure you want to change this Campus status?"
 
   datetime:
     formats:
