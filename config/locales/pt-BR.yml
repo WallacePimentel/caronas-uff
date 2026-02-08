@@ -31,3 +31,9 @@
   messages:
     place:
       no stops: "Sem paradas adicionadas a esta carona."
+    carpool:
+    confirmation:
+      are_you_sure: "Tem certeza que deseja excluir este item?"
+  datetime:
+    formats:
+      default: "%d/%m/%Y %H:%M"

@@ -2,7 +2,7 @@ en:
   activerecord:
     models:
       campu: Campus
-      carpool: Carpools
+      carpool: Carpool
       place: Stop
     attributes:
       campu:
@@ -17,6 +17,7 @@ en:
       carpool:
         beginning_campus_id: Beginning Campus
         ending_campus_id: Ending Campus
+        departure_time: Departure Time
       place:
         street_adress: Address
         number: Number

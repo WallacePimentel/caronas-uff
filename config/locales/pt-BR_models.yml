@@ -17,6 +17,7 @@
       carpool:
         beginning_campus_id: Campus de início
         ending_campus_id: Campus de fim
+        departure_time: Horário de partida
       place:
         street_adress: Endereço
         number: Número
