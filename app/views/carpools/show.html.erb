@@ -1,14 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5 ml-2"> 
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
 
-<p>
-  <strong>Beginning campus:</strong>
-  <%= @carpool.beginning_campus_id %>
-</p>
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2><%= t('details') %> <%= Carpool.model_name.human %></h2>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:beginning_campus_id) %>:</strong>
+          <p class="text-muted"><%= @carpool.beginning_campus.description %></p>
+        </div>
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:ending_campus_id) %>:</strong>
+          <p class="text-muted"><%= @carpool.ending_campus.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Ending campus:</strong>
-  <%= @carpool.ending_campus_id %>
-</p>
+  <div class="card">
+    <div class="card-header">
+      <h3><%= Place.model_name.human%>s</h3>
+    </div>
+    <div class="card-body">
+      <% if @carpool.places.any? %>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th><%= Place.human_attribute_name(:street_adress) %></th>
+                <th><%= Place.human_attribute_name(:number) %></th>
+                <th><%= Place.human_attribute_name(:district) %></th>
+                <th><%= Place.human_attribute_name(:city) %></th>
+                <th><%= Place.human_attribute_name(:CEP) %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @carpool.places.each do |place| %>
+                <tr>
+                  <td><%= place.street %></td>
+                  <td><%= place.number %></td>
+                  <td><%= place.district %></td>
+                  <td><%= place.city %></td>
+                  <td><%= place.CEP %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <p class="text-muted"><%= t('messages.place.no stops') %></p>
+      <% end %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_carpool_path(@carpool) %> |
-<%= link_to 'Back', carpools_path %>
+  <div class="mt-4">
+    <%= link_to 'Edit', edit_carpool_path(@carpool), class: "btn btn-warning" %>
+    <%= link_to 'Back', carpools_path, class: "btn btn-secondary" %>
+  </div>
+</div>
