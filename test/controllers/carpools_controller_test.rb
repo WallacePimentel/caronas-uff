@@ -17,7 +17,7 @@ class CarpoolsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create carpool" do
     assert_difference('Carpool.count') do
-      post carpools_url, params: { carpool: { begging_campus_id: @carpool.begging_campus_id, ending_campus_id: @carpool.ending_campus_id } }
+      post carpools_url, params: { carpool: { beginning_campus_id: @carpool.beginning_campus_id, ending_campus_id: @carpool.ending_campus_id } }
     end
 
     assert_redirected_to carpool_url(Carpool.last)
@@ -34,7 +34,7 @@ class CarpoolsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update carpool" do
-    patch carpool_url(@carpool), params: { carpool: { begging_campus_id: @carpool.begging_campus_id, ending_campus_id: @carpool.ending_campus_id } }
+    patch carpool_url(@carpool), params: { carpool: { beginning_campus_id: @carpool.beginning_campus_id, ending_campus_id: @carpool.ending_campus_id } }
     assert_redirected_to carpool_url(@carpool)
   end
 

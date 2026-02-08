@@ -14,7 +14,7 @@ class CarpoolsTest < ApplicationSystemTestCase
     visit carpools_url
     click_on "New Carpool"
 
-    fill_in "Begging campus", with: @carpool.begging_campus_id
+    fill_in "Beginning campus", with: @carpool.beginning_campus_id
     fill_in "Ending campus", with: @carpool.ending_campus_id
     click_on "Create Carpool"
 
@@ -26,7 +26,7 @@ class CarpoolsTest < ApplicationSystemTestCase
     visit carpools_url
     click_on "Edit", match: :first
 
-    fill_in "Begging campus", with: @carpool.begging_campus_id
+    fill_in "Beginning campus", with: @carpool.beginning_campus_id
     fill_in "Ending campus", with: @carpool.ending_campus_id
     click_on "Update Carpool"
 
