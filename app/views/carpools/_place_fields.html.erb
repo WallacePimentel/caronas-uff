@@ -1,0 +1,43 @@
+<div class="nested-fields card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :street %>
+          <%= f.text_field :street, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <%= f.label :number %>
+          <%= f.text_field :number, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :district %>
+          <%= f.text_field :district, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= f.label :city %>
+          <%= f.text_field :city, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :CEP %>
+          <%= f.text_field :CEP, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-2 d-flex align-items-end">
+        <div class="form-group">
+          <%= link_to_remove_association t('links.remove.place'), f, class: 'btn btn-danger btn-block' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
