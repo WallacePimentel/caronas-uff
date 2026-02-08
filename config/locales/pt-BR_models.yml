@@ -2,6 +2,8 @@
   activerecord:
     models:
       campu: Campus
+      carpool: Carona
+      place: Parada
     attributes:
       campu:
         description: Descrição
@@ -12,3 +14,12 @@
         CEP: CEP
         status: Status
         deactivation_date: Data de desativação
+      carpool:
+        beginning_campus_id: Campus de início
+        ending_campus_id: Campus de fim
+      place:
+        street_adress: Endereço
+        number: Número
+        district: Bairro
+        city: Cidade
+        CEP: CEP

@@ -39,12 +39,16 @@ en:
     destroy: "Delete"
     new:
       campus: "New Campus"
+      carpool: "New Carpool"
     submit: "Submit"
+    add:
+      place: "Add Stop"
+    remove:
+      place: "Remove Stop"
 
-  editing:
-    campus: "Editing Campus"
-  details:
-    campus: "Campus Details"
+  creating: "Creating"
+  editing: "Editing"
+  details: "Details"
 
   status:
     active: "Active"
@@ -54,3 +58,7 @@ en:
     welcome: "Welcome!"
     introduction: "This is the UFF carpooling system. Here you can navigate through the UFF campuses and create carpools between them."
     options: "Choose one of the options below to start navigating:"
+
+  messages:
+    place:
+      no stops: "No stops added to this carpool."

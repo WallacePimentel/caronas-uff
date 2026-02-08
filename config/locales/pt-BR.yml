@@ -8,12 +8,16 @@
     destroy: "Excluir"
     new:
       campus: "Novo Campus"
+      carpool: "Nova Carona"
     submit: "Enviar"
+    add:
+      place: "Adicionar Parada"
+    remove:
+      place: "Remover Parada"
 
-  editing:
-    campus: "Editando Campus"
-  details:
-    campus: "Detalhes do Campus"
+  creating: "Criando"
+  editing: "Editando"
+  details: "Detalhes"
 
   status:
     active: "Ativo"
@@ -23,3 +27,7 @@
     welcome: "Seja bem vindo!"
     introduction: "Este é o sistema de caronas da UFF. Onde você pode navegar pelos campi da UFF e criar caronas entre eles."
     options: "Escolha abaixo uma das opções para começar a navegar:"
+
+  messages:
+    place:
+      no stops: "Sem paradas adicionadas a esta carona."
