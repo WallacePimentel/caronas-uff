@@ -1,9 +1,8 @@
 <%= form_with(model: carpool, local: true) do |form| %>
   <% if carpool.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(carpool.errors.count, "error") %> prohibited this carpool from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(carpool.errors.count, "error") %> prohibited this carpool from being saved:</h4>
+      <ul class="mb-0">
         <% carpool.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -11,17 +10,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :beginning_campus_id %>
-    <%= form.text_field :beginning_campus_id %>
+  <div class="form-group">
+    <%= form.label :beginning_campus_id, class: "font-weight-bold" %>
+    <%= form.select :beginning_campus_id, Campu.all.collect { |c| [c.description, c.id] }, { prompt: true }, { class: "form-control" } %>
   </div>
 
-  <div class="field">
-    <%= form.label :ending_campus_id %>
-    <%= form.text_field :ending_campus_id %>
+  <div class="form-group">
+    <h5 class="font-weight-bold"><%= Place.model_name.human(count: :other) %></h5>
+    <%= form.fields_for :places do |place|%>
+      <%= render 'place_fields', f: place %>
+    <% end %>
+    <div class="mt-3">
+      <%= link_to_add_association t('links.add.place'), form, :places, class: "btn btn-secondary" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :ending_campus_id, class: "font-weight-bold" %>
+    <%= form.select :ending_campus_id, Campu.all.collect { |c| [c.description, c.id] }, { prompt: true }, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
