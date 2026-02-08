@@ -1,9 +1,10 @@
 class CarpoolsController < ApplicationController
   before_action :set_carpool, only: %i[ show edit update destroy ]
+  before_action :set_carpool_options, only: %i[ new edit create update]
 
   # GET /carpools or /carpools.json
   def index
-    @carpools = Carpool.all
+    @carpools = Carpool.order(:departure_time)
   end
 
   # GET /carpools/1 or /carpools/1.json
@@ -58,6 +59,9 @@ class CarpoolsController < ApplicationController
   end
 
   private
+    def set_carpool_options
+      @campus_options = Campu.where(status: 'active)').pluck(:description, :id)
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_carpool
       @carpool = Carpool.find(params[:id])
@@ -65,6 +69,6 @@ class CarpoolsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def carpool_params
-      params.require(:carpool).permit(:beginning_campus_id, :ending_campus_id, places_attributes: [:id, :street, :number, :district, :city, :CEP, :_destroy])
+      params.require(:carpool).permit(:beginning_campus_id, :ending_campus_id, :departure_time, places_attributes: [:id, :street, :number, :district, :city, :CEP, :_destroy])
     end
 end

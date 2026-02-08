@@ -12,7 +12,7 @@
 
   <div class="form-group">
     <%= form.label :beginning_campus_id, class: "font-weight-bold" %>
-    <%= form.select :beginning_campus_id, Campu.all.collect { |c| [c.description, c.id] }, { prompt: true }, { class: "form-control" } %>
+    <%= form.select :beginning_campus_id, @campus_options, { prompt: true }, { class: "form-control" } %>
   </div>
 
   <div class="form-group">
@@ -27,7 +27,12 @@
 
   <div class="form-group">
     <%= form.label :ending_campus_id, class: "font-weight-bold" %>
-    <%= form.select :ending_campus_id, Campu.all.collect { |c| [c.description, c.id] }, { prompt: true }, { class: "form-control" } %>
+    <%= form.select :ending_campus_id, @campus_options, { prompt: true }, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :departure_time, class: "font-weight-bold" %>
+    <%= form.datetime_select :departure_time, { default: Time.current }, { class: "form-control" } %>
   </div>
 
   <div class="form-group mt-4">
