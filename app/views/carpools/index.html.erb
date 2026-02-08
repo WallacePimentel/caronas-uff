@@ -8,6 +8,7 @@
     <tr>
       <th><%= Carpool.human_attribute_name(:beginning_campus_id) %></th>
       <th><%= Carpool.human_attribute_name(:ending_campus_id) %></th>
+      <th><%= Carpool.human_attribute_name(:departure_time) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +18,10 @@
       <tr>
         <td><%= carpool.beginning_campus.description %></td>
         <td><%= carpool.ending_campus.description %></td>
+        <td><%= carpool.departure_time.strftime(t('datetime.formats.default')) %></td>
         <td><%= link_to t('links.show'), carpool, class:'btn btn-success' %></td>
         <td><%= link_to t('links.edit'), edit_carpool_path(carpool), class:'btn btn-warning' %></td>
-        <td><%= link_to t('links.destroy'), carpool, method: :delete, data: { confirm: t('confirmations.are_you_sure') }, class:'btn btn-danger' %></td>
+        <td><%= link_to t('links.destroy'), carpool, method: :delete, data: { confirm: t('messages.confirmation.are_you_sure') }, class:'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

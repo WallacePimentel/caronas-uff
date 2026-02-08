@@ -13,7 +13,7 @@
     <li class="list-group-item"><strong><%= Campu.human_attribute_name(:city) %>:</strong> <%= @campu.city %></li>
     <li class="list-group-item"><strong><%= Campu.human_attribute_name(:CEP) %>:</strong> <%= @campu.CEP %></li>
     <li class="list-group-item"><strong><%= Campu.human_attribute_name(:status) %>:</strong> <%= @campu.status.capitalize %></li>
-    <li class="list-group-item"><strong><%= Campu.human_attribute_name(:deactivation_date) %>:</strong> <%= @campu.deactivation_date %></li>
+    <li class="list-group-item"><strong><%= Campu.human_attribute_name(:deactivation_date) %>:</strong> <%= @campu.deactivation_date.strftime(t('datetime.formats.default')) if @campu.deactivation_date %></li>
   </ul>
 
   <div class="mt-3">

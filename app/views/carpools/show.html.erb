@@ -17,6 +17,11 @@
           <strong><%= Carpool.human_attribute_name(:ending_campus_id) %>:</strong>
           <p class="text-muted"><%= @carpool.ending_campus.description %></p>
         </div>
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:departure_time) %>:</strong>
+          <p class="text-muted"><%= @carpool.departure_time.strftime(t('datetime.formats.default')) %></p>
+
+        </div>
       </div>
     </div>
   </div>
