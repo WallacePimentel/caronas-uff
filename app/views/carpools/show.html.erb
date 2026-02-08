@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Begging campus:</strong>
+  <%= @carpool.begging_campus_id %>
+</p>
+
+<p>
+  <strong>Ending campus:</strong>
+  <%= @carpool.ending_campus_id %>
+</p>
+
+<%= link_to 'Edit', edit_carpool_path(@carpool) %> |
+<%= link_to 'Back', carpools_path %>

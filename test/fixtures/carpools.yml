@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  begging_campus: one
+  ending_campus: one
+
+two:
+  begging_campus: two
+  ending_campus: two
