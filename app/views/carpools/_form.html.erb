@@ -11,6 +11,21 @@
   <% end %>
 
   <div class="form-group">
+    <%= form.label :driver, class: "font-weight-bold"%>
+    <%= form.text_field :driver, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :passengers, class: "font-weight-bold"%>
+    <%= form.select :passengers, options_for_select(1..4)%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price_per_person, class: "font-weight-bold"%>
+    <%= form.select :price_per_person, options_for_select((0..15).map { |n| n.to_f }) %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :beginning_campus_id, class: "font-weight-bold" %>
     <%= form.select :beginning_campus_id, @campus_options, { prompt: true }, { class: "form-control" } %>
   </div>
@@ -33,6 +48,11 @@
   <div class="form-group">
     <%= form.label :departure_time, class: "font-weight-bold" %>
     <%= form.datetime_select :departure_time, { default: Time.current } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observation, class: "font-weight-bold"%>
+    <%= form.text_field :observation, class: "form-control"%>
   </div>
 
   <div class="form-group mt-4">

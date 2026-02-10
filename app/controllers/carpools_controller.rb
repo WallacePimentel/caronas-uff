@@ -69,6 +69,6 @@ class CarpoolsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def carpool_params
-      params.require(:carpool).permit(:beginning_campus_id, :ending_campus_id, :departure_time, places_attributes: [:id, :street, :number, :district, :city, :CEP, :_destroy])
+      params.require(:carpool).permit(:beginning_campus_id, :ending_campus_id, :departure_time, :passengers, :driver, :observation, :price_per_person, places_attributes: [:id, :street, :number, :district, :city, :CEP, :_destroy])
     end
 end

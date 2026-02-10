@@ -20,7 +20,26 @@
         <div class="col-md-6">
           <strong><%= Carpool.human_attribute_name(:departure_time) %>:</strong>
           <p class="text-muted"><%= @carpool.departure_time.strftime(t('datetime.formats.default')) %></p>
-
+        </div>
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:driver) %>:</strong>
+          <p class="text-muted"><%= @carpool.driver %></p>
+        </div>
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:passengers) %>:</strong>
+          <p class="text-muted"><%= @carpool.passengers %></p>
+        </div>
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:price_per_person) %>:</strong>
+          <p class="text-muted"><%= @carpool.price_per_person %></p>
+        </div>
+        <div class="col-md-6">
+          <strong><%= t('total') %>:</strong>
+          <p class="text-muted"><%= @carpool.passengers * @carpool.price_per_person %></p>
+        </div>
+        <div class="col-md-6">
+          <strong><%= Carpool.human_attribute_name(:observation) %>:</strong>
+          <p class="text-muted"><%= @carpool.observation %></p>
         </div>
       </div>
     </div>
