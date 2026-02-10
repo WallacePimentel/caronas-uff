@@ -38,3 +38,5 @@
   datetime:
     formats:
       default: "%d/%m/%Y %H:%M"
+
+  total: "Total:"

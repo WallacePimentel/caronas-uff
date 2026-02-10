@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2026_02_08_135614) do
+ActiveRecord::Schema.define(version: 2026_02_10_023942) do
 
   create_table "campus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "description"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 2026_02_08_135614) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "departure_time"
+    t.integer "passengers"
+    t.string "driver"
+    t.string "observation"
+    t.float "price_per_person"
     t.index ["beginning_campus_id"], name: "index_carpools_on_beginning_campus_id"
     t.index ["ending_campus_id"], name: "index_carpools_on_ending_campus_id"
   end

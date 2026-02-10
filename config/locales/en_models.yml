@@ -18,6 +18,10 @@ en:
         beginning_campus_id: Beginning Campus
         ending_campus_id: Ending Campus
         departure_time: Departure Time
+        passengers: Passengers
+        driver: Driver
+        pricer_per_person: Price per Person
+        observation: Observation
       place:
         street_adress: Address
         number: Number

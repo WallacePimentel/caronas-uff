@@ -70,3 +70,5 @@ en:
   datetime:
     formats:
       default: "%m/%d/%Y %H:%M"
+
+  total: "Total:"
