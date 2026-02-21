@@ -4,7 +4,7 @@ class CarpoolsController < ApplicationController
 
   # GET /carpools or /carpools.json
   def index
-    @carpools = Carpool.order(:departure_time)
+    @carpools = Carpool.includes(:beginning_campus, :ending_campus).order(:departure_time)
   end
 
   # GET /carpools/1 or /carpools/1.json
