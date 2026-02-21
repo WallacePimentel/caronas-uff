@@ -1,9 +1,15 @@
 "pt-BR":
   activerecord:
     models:
-      campu: Campus
-      carpool: Carona
-      place: Parada
+      campu:
+        one: Campus
+        other: Campi
+      carpool:
+        one: Carona
+        other: Caronas
+      place:
+        one: Parada
+        other: Paradas
     attributes:
       campu:
         description: Descrição

@@ -1,9 +1,15 @@
 en:
   activerecord:
     models:
-      campu: Campus
-      carpool: Carpool
-      place: Stop
+      campu:
+        one: Campus
+        other: Campuses
+      carpool:
+        one: Carpool
+        other: Carpools
+      place:
+        one: Stop
+        other: Stops
     attributes:
       campu:
         description: Description

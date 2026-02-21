@@ -3,7 +3,7 @@
     <div class="alert alert-success"><%= notice %></div>
   <% end %>
 
-  <h1><strong><%= t('details') %> <%= Campu.model_name.human %></strong></h1>
+  <h1><strong><%= t('details') %> <%= Campu.model_name.human(count: 1) %></strong></h1>
   
   <ul class="list-group mt-3">
     <li class="list-group-item"><strong><%= Campu.human_attribute_name(:description) %>:</strong> <%= @campu.description %></li>
