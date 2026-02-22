@@ -11,11 +11,11 @@
       <div class="row mb-3">
         <div class="col-md-6">
           <strong><%= Carpool.human_attribute_name(:beginning_campus_id) %>:</strong>
-          <p class="text-muted"><%= @carpool.beginning_campus.description %></p>
+          <p class="text-muted"><%= @carpool.beginning_campus&.description  %></p>
         </div>
         <div class="col-md-6">
           <strong><%= Carpool.human_attribute_name(:ending_campus_id) %>:</strong>
-          <p class="text-muted"><%= @carpool.ending_campus.description %></p>
+          <p class="text-muted"><%= @carpool.ending_campus&.description %></p>
         </div>
         <div class="col-md-6">
           <strong><%= Carpool.human_attribute_name(:departure_time) %>:</strong>

@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2026_02_10_023942) do
   end
 
   create_table "carpools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "beginning_campus_id", null: false
-    t.bigint "ending_campus_id", null: false
+    t.bigint "beginning_campus_id"
+    t.bigint "ending_campus_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "departure_time"

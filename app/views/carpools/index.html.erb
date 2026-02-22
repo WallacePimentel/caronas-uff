@@ -20,8 +20,8 @@
   <tbody>
     <% @carpools.each do |carpool| %>
       <tr>
-        <td><%= carpool.beginning_campus.description %></td>
-        <td><%= carpool.ending_campus.description %></td>
+        <td><%= carpool.beginning_campus&.description%></td>
+        <td><%= carpool.ending_campus&.description%></td>
         <td><%= carpool.departure_time.strftime(t('datetime.formats.default')) %></td>
         <td><%= carpool.driver %></td>
         <td><%= carpool.passengers %></td>
