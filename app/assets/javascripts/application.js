@@ -63,16 +63,25 @@ function initializeCampusSelect2() {
 
 $(document).ready(function () {
   initializeCampusSelect2();
-  initializeCampusSearchSelect2();
+
+  if ($(".js-campus-search").length) {
+    initializeTableSearch(".js-campus-search", filterByCampusId);
+  }
+
+  if ($(".js-carpool-campus-search").length) {
+    initializeTableSearch(
+      ".js-carpool-campus-search",
+      filterByBeginningOrEndingCampus,
+    );
+  }
 });
 
 $(document).on("cocoon:after-insert", function () {
   initializeCampusSelect2();
 });
 
-// Função extra para separar da usada pelo formulário, para destacar o campus selecionado no index na tabela
-function initializeCampusSearchSelect2() {
-  $(".js-campus-search").select2({
+function initializeTableSearch(selector, filterFunction) {
+  $(selector).select2({
     theme: "bootstrap",
     width: "100%",
     placeholder: "Buscar campus...",
@@ -90,29 +99,43 @@ function initializeCampusSearchSelect2() {
     },
   });
 
-  $(".js-campus-search").on("select2:select", function (e) {
+  $(selector).on("select2:select", function (e) {
     var campusId = e.params.data.id;
 
-    $(".table tbody tr").hide();
+    $(".table tbody tr").hide().removeClass("table-warning");
 
-    var $row = $('tr[data-campus-id="' + campusId + '"]');
+    filterFunction(campusId);
 
-    if ($row.length) {
-      $("tr").removeClass("table-warning");
-      $row.show();
-      $row.addClass("table-warning");
-
+    var $firstVisible = $(".table tbody tr:visible").first();
+    if ($firstVisible.length) {
       $("html, body").animate(
         {
-          scrollTop: $row.offset().top - 100,
+          scrollTop: $firstVisible.offset().top - 100,
         },
         500,
       );
     }
   });
 
-  $(".js-campus-search").on("select2:clear select2:unselect", function () {
-    $(".table tbody tr").show();
-    $("tr").removeClass("table-warning");
+  $(selector).on("select2:clear select2:unselect", function () {
+    $(".table tbody tr").show().removeClass("table-warning");
+  });
+}
+
+function filterByCampusId(campusId) {
+  var $row = $('tr[data-campus-id="' + campusId + '"]');
+  if ($row.length) {
+    $row.show().addClass("table-warning");
+  }
+}
+
+function filterByBeginningOrEndingCampus(campusId) {
+  $(".table tbody tr").each(function () {
+    var beginningId = $(this).data("beginning-campus-id");
+    var endingId = $(this).data("ending-campus-id");
+
+    if (beginningId == campusId || endingId == campusId) {
+      $(this).show().addClass("table-warning");
+    }
   });
 }
