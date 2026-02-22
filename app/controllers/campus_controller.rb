@@ -3,7 +3,22 @@ class CampusController < ApplicationController
 
   # GET /campus or /campus.json
   def index
-    @campus = Campu.all
+    @campus = Campu.for_select2(
+      query: params[:q], 
+      limit: params[:limit]
+    )
+
+    respond_to do |format|
+      format.html {
+        # Filtering for active campuses in HTML view
+        @campus = Campu.active.order(:description)
+      }
+      
+      format.json {
+        # Filtering with formatted results to use in select2 with JSON response
+        render json: format_for_select2(@campus)
+      }
+    end
   end
 
   # GET /campus/1 or /campus/1.json
@@ -58,6 +73,7 @@ class CampusController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_campu
       @campu = Campu.find(params[:id])
@@ -66,5 +82,17 @@ class CampusController < ApplicationController
     # Only allow a list of trusted parameters through.
     def campu_params
       params.require(:campu).permit(:description, :street_adress, :number, :district, :city, :CEP, :status)
+    end
+    
+    # Format campuses for cleaner select2 JSON response
+    def format_for_select2(campuses)
+      {
+        results: campuses.map do |campus|
+          {
+            id: campus.id,
+            text: "#{campus.description} - #{campus.city}"
+          }
+        end
+      }
     end
 end
