@@ -60,7 +60,7 @@ class CarpoolsController < ApplicationController
 
   private
     def set_carpool_options
-      @campus_options = Campu.where(status: 'active)').pluck(:description, :id)
+      @campus_options = Campu.where(status: 'ativo').pluck(:description, :id)
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_carpool
