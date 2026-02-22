@@ -85,11 +85,11 @@ function initializeTableSearch(selector, filterFunction) {
     theme: "bootstrap",
     width: "100%",
     placeholder: "Buscar campus...",
-    minimumInputLength: 1,
+    minimumInputLength: 0,
     ajax: {
       url: "/campus.json",
       dataType: "json",
-      delay: 500,
+      delay: 1000,
       data: function (params) {
         return { q: params.term || "", limit: 20 };
       },
