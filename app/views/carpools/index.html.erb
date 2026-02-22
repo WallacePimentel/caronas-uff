@@ -3,6 +3,16 @@
 
 <h1><%= Carpool.model_name.human(count: :other) %></h1>
 
+<div class="row mb-4">
+  <div class="col-md-6">
+    <label class="font-weight-bold">Buscar por Campus:</label>
+    <%= select_tag :carpool_campus_search, 
+        [],
+        { class: "form-control js-carpool-campus-search",
+          placeholder: "Buscar caronas por campus..." } %>
+  </div>
+</div>
+
 <table class="table table-striped" style="width: auto;">
   <thead>
     <tr>
@@ -19,7 +29,9 @@
 
   <tbody>
     <% @carpools.each do |carpool| %>
-      <tr>
+      <tr data-carpool-id="<%= carpool.id %>"
+          data-beginning-campus-id="<%= carpool.beginning_campus_id %>"
+          data-ending-campus-id="<%= carpool.ending_campus_id %>">
         <td><%= carpool.beginning_campus&.description%></td>
         <td><%= carpool.ending_campus&.description%></td>
         <td><%= carpool.departure_time.strftime(t('datetime.formats.default')) %></td>
