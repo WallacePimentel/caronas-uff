@@ -35,8 +35,13 @@
     confirmation:
       are_you_sure: "Tem certeza que deseja excluir este item?"
       change_status: "Tem certeza que deseja alterar o status deste Campus?"
+    error:
+      carpool:
+        no_campus: "A carona deve ter um campus de início ou um campus de fim."
+        no_stops: "A carona deve ter ao menos uma Parada se não tiver um campus de início ou um campus de fim."
   datetime:
     formats:
       default: "%d/%m/%Y %H:%M"
 
   total: "Total:"
+  blank: "-"
