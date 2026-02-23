@@ -21,7 +21,6 @@ class Campu < ApplicationRecord
     limit.to_i > 0 ? limit(limit) : all 
   }
   
-  # Combined scope for select2 autocomplete
   scope :for_select2, ->(query: nil, limit: nil) {
     scope = active.order(:description)
     scope = scope.search_by_term(query) if query.present?
