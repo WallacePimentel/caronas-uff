@@ -27,6 +27,8 @@ development:
 test:
   <<: *default
   database: atividade_pratica_sti_test
+  username: root
+  password: <%= Rails.application.credentials.mysql_database_password %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,5 +52,5 @@ test:
 production:
   <<: *default
   database: atividade_pratica_sti_production
-  username: atividade_pratica_sti
-  password: <%= ENV['ATIVIDADE_PRATICA_STI_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= Rails.application.credentials.mysql_database_password %>
