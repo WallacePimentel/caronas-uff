@@ -3,6 +3,7 @@ class Campu < ApplicationRecord
 
   before_save :set_deactivation_date
 
+  validates :description, :status, presence: true
   
   scope :active, -> { where(status: :ativo) }
   
