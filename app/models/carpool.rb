@@ -5,6 +5,7 @@ class Carpool < ApplicationRecord
   accepts_nested_attributes_for :places, allow_destroy: true, reject_if: :all_blank
 
   validate :campus_or_stop_present
+  validates :driver, :departure_time, :price_per_person, presence: true
 
   private
   def campus_or_stop_present
@@ -12,9 +13,9 @@ class Carpool < ApplicationRecord
     missing_ending_campus = ending_campus.nil?
 
     if missing_beginning_campus && missing_ending_campus
-      errors.add(:base, t(:'error.carpool.no_campus'))
+      errors.add(:base, I18n.t('error.carpool.no_campus'))
     elsif (missing_beginning_campus && places.empty?) || (missing_ending_campus && places.empty?)
-      errors.add(:base, t(:'error.carpool.no_stops'))
+      errors.add(:base, I18n.t('error.carpool.no_stops'))
     end
   end
 end
