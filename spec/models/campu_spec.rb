@@ -76,4 +76,74 @@ RSpec.describe Campu, type: :model do
         expect(result).to include(campus1)
       end
     end
+
+    escribe '.limited' do
+      let!(:campuses) { create_list(:campu, 5) }
+
+      it 'limits results to specified number' do
+        ids = campuses.map(&:id)
+        result = Campu.where(id: ids).limited(3)
+        expect(result.count).to eq(3)
+      end
+
+      it 'returns all when limit is 0' do
+        ids = campuses.map(&:id)
+        result = Campu.where(id: ids).limited(0)
+        expect(result.count).to eq(5)
+      end
+
+      it 'returns all when limit is negative' do
+        ids = campuses.map(&:id)
+        result = Campu.where(id: ids).limited(-1)
+        expect(result.count).to eq(5)
+      end
+
+      it 'returns all when limit is nil' do
+        ids = campuses.map(&:id)
+        result = Campu.where(id: ids).limited(nil)
+        expect(result.count).to eq(5)
+      end
+    end
+
+    describe '.for_select2' do
+      let!(:active1) { create(:campu, status: :ativo, description: 'Alpha Campus', city: 'São Paulo') }
+      let!(:active2) { create(:campu, status: :ativo, description: 'Beta Campus', city: 'Rio') }
+      let!(:inactive) { create(:campu, status: :inativo, description: 'Gamma Campus') }
+
+      it 'returns only active campus ordered by description' do
+        ids = [active1.id, active2.id, inactive.id]
+        result = Campu.where(id: ids).for_select2.to_a
+        expect(result).to eq([active1, active2])
+      end
+
+      it 'filters by query term' do
+        ids = [active1.id, active2.id, inactive.id]
+        result = Campu.where(id: ids).for_select2(query: 'Beta')
+        expect(result).to include(active2)
+        expect(result).not_to include(active1)
+      end
+
+      it 'applies limit when provided' do
+        ids = [active1.id, active2.id]
+        result = Campu.where(id: ids).for_select2(limit: 1)
+        expect(result.count).to eq(1)
+      end
+
+      it 'combines query and limit' do
+        sp1 = create(:campu, status: :ativo, description: 'São Paulo Campus 1')
+        sp2 = create(:campu, status: :ativo, description: 'São Paulo Campus 2')
+        ids = [sp1.id, sp2.id]
+        
+        result = Campu.where(id: ids).for_select2(query: 'São Paulo', limit: 1)
+        expect(result.count).to eq(1)
+        expect(result.first.description).to include('São Paulo')
+      end
+
+      it 'excludes inactive campus even with matching query' do
+        ids = [active1.id, active2.id, inactive.id]
+        result = Campu.where(id: ids).for_select2(query: 'Gamma')
+        expect(result).to be_empty
+      end
+    end
+  end
 end
