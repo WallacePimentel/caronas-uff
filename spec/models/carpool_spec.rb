@@ -67,4 +67,37 @@ RSpec.describe Carpool, type: :model do
       end
     end
   end
+
+  describe 'nested attributes' do
+    it 'accepts nested attributes for places' do
+      carpool = build(:carpool, places_attributes: [
+        attributes_for(:place, carpool: nil),
+        attributes_for(:place, carpool: nil)
+      ])
+      expect(carpool.places.size).to eq(2)
+    end
+
+    it 'allows destroying places through nested attributes' do
+      carpool = create(:carpool)
+      place = carpool.places.create(attributes_for(:place, carpool: nil))
+      
+      carpool.update(places_attributes: [{ id: place.id, _destroy: '1' }])
+      expect(carpool.places.reload).to be_empty
+    end
+
+    it 'rejects blank nested attributes' do
+      # This still applies - blank attributes should be rejected
+      carpool = build(:carpool, places_attributes: [{ street: '', city: '' }])
+      expect(carpool.places.size).to eq(0)
+    end
+  end
+
+  describe 'dependencies' do
+    it 'destroys associated places when destroyed' do
+      carpool = create(:carpool)
+      place = carpool.places.create(attributes_for(:place, carpool: nil))
+      
+      expect { carpool.destroy }.to change { Place.count }.by(-1)
+    end
+  end
 end
