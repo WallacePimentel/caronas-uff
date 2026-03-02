@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Carpool, type: :model do
-  describe 'factory' do
+  describe 'first validation' do
     it 'is valid with valid attributes' do
       carpool = build(:carpool)
       expect(carpool).to be_valid
