@@ -77,7 +77,7 @@ RSpec.describe Campu, type: :model do
       end
     end
 
-    escribe '.limited' do
+    describe '.limited' do
       let!(:campuses) { create_list(:campu, 5) }
 
       it 'limits results to specified number' do
