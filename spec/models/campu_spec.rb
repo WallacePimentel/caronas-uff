@@ -146,4 +146,44 @@ RSpec.describe Campu, type: :model do
       end
     end
   end
+
+  describe 'callbacks' do
+    describe 'before_save: set_deactivation_date' do
+      context 'when status changes to inativo' do
+        it 'sets deactivation_date to current time' do
+          campus = create(:campu, status: :ativo, deactivation_date: nil)
+          
+          campus.update(status: :inativo)
+          expect(campus.deactivation_date).to be_present
+          expect(campus.deactivation_date).to be_within(1.second).of(Time.current)
+        end
+
+        it 'does not change deactivation_date if already set' do
+          original_date = 1.day.ago
+          campus = create(:campu, status: :inativo, deactivation_date: original_date)
+          
+          campus.update(description: 'New Description')
+          expect(campus.reload.deactivation_date.to_i).to eq(original_date.to_i)
+        end
+      end
+
+      context 'when status changes to ativo' do
+        it 'clears deactivation_date' do
+          campus = create(:campu, status: :inativo, deactivation_date: 1.day.ago)
+          
+          campus.update(status: :ativo)
+          expect(campus.deactivation_date).to be_nil
+        end
+      end
+
+      context 'when status remains active' do
+        it 'keeps deactivation_date as nil' do
+          campus = create(:campu, status: :ativo, deactivation_date: nil)
+          
+          campus.update(description: 'Updated Description')
+          expect(campus.deactivation_date).to be_nil
+        end
+      end
+    end
+  end
 end
