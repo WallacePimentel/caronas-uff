@@ -1,5 +1,6 @@
 #Require for webmock gem
 require 'webmock/rspec'
+require 'capybara/rspec'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'
