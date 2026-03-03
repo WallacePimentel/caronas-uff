@@ -20,6 +20,10 @@ Rails.application.configure do
     'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
+  # Enable asset compilation for feature tests with JavaScript
+  config.assets.compile = true
+  config.assets.debug = false
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
